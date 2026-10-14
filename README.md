@@ -20,7 +20,7 @@
 - 現代瀏覽器：執行 DOM、Fetch 與圖片處理範例。
 - Fetch 真實請求需網路連線；HEIC 轉換建議透過本地 HTTP server 開啟，避免瀏覽器限制 `file://` 下的 Web Worker。
 
-執行學習範例不需安裝 npm 套件；根目錄的 `package.json` 只提供 Playwright
+執行學習範例不需安裝 npm 套件；根目錄的 `package.json` 只提供 Playwright 1.63.0
 瀏覽器驗收，不參與頁面載入，也沒有 build 或 lint script。
 
 ## 執行方式
@@ -49,7 +49,8 @@ npm run test:live         # 另驗 JSONPlaceholder 與公開 CORS endpoint，需
 ```
 
 若已有 Chrome／Chromium，可用 `CHROME_BIN=/absolute/path/to/chrome npm test`，
-不需另下載 Playwright 瀏覽器。2026-10-05 實跑本地 8 個 tests 與 live test 全部通過。
+不需另下載 Playwright 瀏覽器。瀏覽器測試包含 vendored HEIC bundle provenance、
+本地 HTTP／CORS、離線、abort、DOM 與實際 HEIC 解碼。
 本地測試啟動隔離的 HTTP servers；只替換請求目的地，不 mock 瀏覽器 Fetch／CORS。
 HEIC fixture 是 `tests/generate-heic-fixture.mjs` 產生的原創 32×24 像素圖，
 已存於 `tests/fixtures/generated.heic`；需重新產生時在 macOS 執行該 script

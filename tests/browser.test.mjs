@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
 import { after, before, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
@@ -6,6 +8,15 @@ import { startServers } from './server.mjs';
 
 let browser;
 let servers;
+test('vendored heic2any bundle matches documented upstream version and digest', async () => {
+  const vendor = await readFile(new URL('../image-processing/heic2any/vendor/heic2any.js', import.meta.url));
+  const source = vendor.toString();
+  assert.match(source, /heic2any/);
+  assert.match(source, /MIT License/i);
+  assert.equal(createHash('sha256').update(vendor).digest('hex'),
+    'b149057ad0b93f3c8e73c461bea4d50fb2b615d511da89848763ebd5adf48a22');
+});
+
 before(async () => {
   browser = await chromium.launch({ executablePath: process.env.CHROME_BIN });
   try { servers = await startServers(); }

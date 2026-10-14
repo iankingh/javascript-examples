@@ -6,6 +6,6 @@
     "test:live": "LIVE_NETWORK=1 node --test tests/*.test.mjs"
   },
   "devDependencies": {
-    "playwright": "1.57.0"
+    "playwright": "1.63.0"
   }
 }
