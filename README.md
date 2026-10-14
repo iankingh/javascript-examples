@@ -1,4 +1,4 @@
-# javascript-lab
+# javascript-examples
 
 個人 JavaScript 學習範例集。各資料夾皆為獨立主題：Node.js 範例可直接執行，瀏覽器範例則是無建置流程的 HTML 頁面。
 
@@ -60,7 +60,7 @@ HEIC fixture 是 `tests/generate-heic-fixture.mjs` 產生的原創 32×24 像素
 ## 專案結構
 
 ```text
-javascript-lab/
+javascript-examples/
 ├── async-js/              # 非同步 JavaScript
 ├── dom-manipulation/      # DOM 與事件
 ├── es6-features/          # ES6+ 與 ESM

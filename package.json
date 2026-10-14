@@ -1,5 +1,5 @@
 {
-  "name": "javascript-lab-browser-checks",
+  "name": "javascript-examples-browser-checks",
   "private": true,
   "scripts": {
     "test": "node --test tests/*.test.mjs",
